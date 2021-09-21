@@ -70,10 +70,10 @@ namespace app.Tests
 
             //Act
             ImmutableStudent student = new ImmutableStudent(1, "givenname", "surname", new DateTime(2020, 8, 24), new DateTime(2023, 6, 25), new DateTime(2023, 6, 26));
-            CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("da-DK");
+            CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
             string str = student.ToString();
             //Assert
-            Assert.Equal("ImmutableStudent { Id = 1, GivenName = givenname, SurName = surname, StartDate = 24-08-2020 00:00:00, EndDate = 25-06-2023 00:00:00, GraduationDate = 26-06-2023 00:00:00, Status = Active }", str);
+            Assert.Equal("ImmutableStudent { Id = 1, GivenName = givenname, SurName = surname, StartDate = 8/24/2020 12:00:00 AM, EndDate = 6/25/2023 12:00:00 AM, GraduationDate = 6/26/2023 12:00:00 AM, Status = Active }", str);
         }
     }
 }
