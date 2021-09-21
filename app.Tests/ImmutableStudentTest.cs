@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Reflection;
 using Xunit;
 
@@ -65,9 +66,11 @@ namespace app.Tests
             DateTime startDate = new DateTime(2020, 8, 24);
             DateTime endDate = new DateTime(2023, 6, 25);
             DateTime graduationDate = new DateTime(2023, 6, 26);
+        
 
             //Act
             ImmutableStudent student = new ImmutableStudent(1, "givenname", "surname", new DateTime(2020, 8, 24), new DateTime(2023, 6, 25), new DateTime(2023, 6, 26));
+            CultureInfo.CurrentCulture = CultureInfo.CreateSpecificCulture("da-DK");
             string str = student.ToString();
             //Assert
             Assert.Equal("ImmutableStudent { Id = 1, GivenName = givenname, SurName = surname, StartDate = 24-08-2020 00:00:00, EndDate = 25-06-2023 00:00:00, GraduationDate = 26-06-2023 00:00:00, Status = Active }", str);
